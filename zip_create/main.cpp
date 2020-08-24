@@ -10,11 +10,11 @@ ZIP z;
 
 int main(int argc, char *argv[])
 {
-    if (argc != 5)
+    /*if (argc != 5)
     {
         std::cerr << "Usage: " << argv[0] << " <input file 1>  <input file 2>  <input file 3>  <zip file>\n";
         return 1;
-    }
+    }*/
 
 
     // argv[1] -> input file
@@ -24,19 +24,21 @@ int main(int argc, char *argv[])
     // argv[4] -> output zip file
 
     //primer archivo
-	z.leerArchivo(argv[1]);
-	z.LocalHeader();
+	
+    z.LeerArch(argv[1]);
 
     //segundo archivo
-    z.leerArchivo(argv[2]);
-	z.LocalHeader();
+    z.LeerArch(argv[2]);
+    
+	
 
     //tercero archivo
-    z.leerArchivo(argv[3]);
-	z.LocalHeader();
+    z.LeerArch(argv[3]);
+    
+	
 
-
- 
+    //cuarto archivo
+    z.CreaZIP(argv[4]);
 
 
 }

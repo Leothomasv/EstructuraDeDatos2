@@ -113,6 +113,29 @@ public:
     EndOfCentralDirectory End{};
     void EndCentralDirectory();
     void PrintEndCentralDirectory();
+
+
+    int ExtratTam(char* n);
+
+    void CreaZIP(char*);
+
+    void LeerArch(char* , char*);
+
+
+    static inline uint16_t makeTime(uint8_t h, uint8_t m, uint8_t s)
+    {
+        return  (((h & 0x1f) << 11)
+                | ((m & 0x3f) << 5)
+                | ((s & 0x1f)>> 1));
+    }
+
+    static inline uint16_t makeDate(uint8_t d, uint8_t m, uint16_t y)
+    {
+        return  ((((y - 1980) & 0x7f) << 9)
+                | ((m & 0xf) << 5)
+                | (d & 0x1f));
+    
+    }
 };
 
 #endif

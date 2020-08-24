@@ -6,8 +6,6 @@ ZIP::ZIP(){}
 void ZIP::leerArchivo(std::string filename)
 {
 	ZipFile.open(filename, std::ifstream::in | std::ifstream::binary);
-	//FileName = 0;
-	//extrafield = 0;
 }
 
 
@@ -25,9 +23,7 @@ int ZIP::checkSignature() {
 					if (pos == 4||pos==2||pos==6|| pos==8) {
 						
 						return pos;
-
 					}
-
 				}
 
 			}
@@ -56,7 +52,7 @@ void ZIP::LocalHeader(){
             //siguiente
             ZipFile.seekg(pos - 4, std::ios::beg);
 				ZipFile.read(reinterpret_cast<char*>(&local.signature), 4);
-				if (local.signature == 33639248) {
+				if (local.signature == 33639248) {//0x04034b50
 					CentralD();
 					return;
 				}
@@ -115,5 +111,57 @@ void ZIP::EndCentralDirectory(){
 
 
 
+///nuevoooo
+int ZIP::ExtratTam(char* n){
+	std::ifstream file;
+
+	file.open((char*)n, std::ifstream::in | std::ifstream::binary);
+	file.seekg(0,std::ios::end);
+
+	std::cout << file.tellg() << std::endl;
+	int tamano = file.tellg();
+	file.close();
+	return tamano;
+}
 
 
+void ZIP::CreaZIP(char* nm){
+
+
+
+}
+
+void ZIP::LeerArch( char* m,char* nm){
+	int tamano = ExtratTam(m);
+	char * buffer =  new char[tamano];
+	std::ifstream arch;
+    arch.open((char*)m, std::ifstream::in | std::ifstream::binary);
+	arch.read(buffer,tamano);
+	std::cout << buffer << std::endl;
+
+//
+  std::ofstream ArchivoZIp(nm);
+  ArchivoZIp.write ((char*)0x04034b50,4);
+ ArchivoZIp.write ((char*)0x14,2);
+ ArchivoZIp.write ((char*)makeTime(5,5,5),2);
+ ArchivoZIp.write ((char*)makeDate(5,5,5),2);
+  ArchivoZIp.write ((char*)tamano,4);
+  ArchivoZIp.write ((char*)tamano,4);
+  ArchivoZIp.write ((char*)strlen(m),2);
+
+//central directory
+ArchivoZIp.write ((char*)0x02014b50,4);
+ ArchivoZIp.write ((char*)0x14,2);
+ ArchivoZIp.write ((char*)0x14,2);
+ ArchivoZIp.write ((char*)makeTime(5,5,5),2);
+ ArchivoZIp.write ((char*)makeDate(5,5,5),2);
+  ArchivoZIp.write ((char*)tamano,4);
+  ArchivoZIp.write ((char*)tamano,4);
+  ArchivoZIp.write ((char*)strlen(m),2);
+
+  //end of central directory
+  ArchivoZIp.write ((char*)0x06054b50,4);
+  ArchivoZIp.write ((char*) 3,2);
+  ArchivoZIp.write ((char*) 3,2);
+
+}
