@@ -48,37 +48,35 @@ namespace Avl
     template <typename T>
     void rotateRight(Node<T> *&root)
     {
-        Node<T> *temporal = root->left;
-        Node<T> *temporal2 = root->right;
+        Node<T> *temporal = root->right;
+        root->right = temporal->left;
+        temporal->left = root;
 
-        //hacer la rotacion...
-        temporal->right = root;
-        root->left = temporal2;
+        //los hijos pueden ser nul
+       
+            root->height = max(altura(root->left), altura(root->right)) + 1;
+            temporal->height = max(altura(temporal->left), altura(temporal->right)) + 1;
 
-        //los hijos pueden ser null
-
-        root->height = max(altura(root->left), altura(root->right)) + 1;
-        temporal->height = max(altura(temporal->left), altura(temporal->right)) + 1;
-    
         root = temporal;
     }
+    // root->height = max(root->right->height, root->left->height) + 1;
+    //temp->height = max(temp->right->height, temp->left->height) + 1;
 
     template <typename T>
     void rotateLeft(Node<T> *&root)
     {
-        Node<T> *temp = root->right;
-        Node<T> *temp2 = temp->left;
-
-        //hacer la rotacion...
-        temp->left = root;
-        root->right = temp2;
+        Node<T> *temp = root->left;
+        root->left = temp->right;
+        temp->right = root;
 
         //los hijos pueden ser NULL
-
+        if (root->right != nullptr && root->left != nullptr)
+        {
             root->height = max(altura(root->left), altura(root->right)) + 1;
             temp->height = max(altura(temp->left), altura(temp->right)) + 1;
+        }
 
-        root = temp2;
+        root = temp;
     }
 
 } // namespace Avl
