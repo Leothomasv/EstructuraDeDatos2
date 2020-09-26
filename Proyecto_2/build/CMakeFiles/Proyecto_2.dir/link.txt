@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Proyecto_2.dir/main.cpp.o CMakeFiles/Proyecto_2.dir/CSV.cpp.o CMakeFiles/Proyecto_2.dir/pbPlots.cpp.o CMakeFiles/Proyecto_2.dir/supportLib.cpp.o  -o Proyecto_2 

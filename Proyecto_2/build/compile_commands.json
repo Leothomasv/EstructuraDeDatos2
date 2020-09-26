@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/leo/projects/Proyecto_2/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++14 -o CMakeFiles/Proyecto_2.dir/main.cpp.o -c /home/leo/projects/Proyecto_2/main.cpp",
+  "file": "/home/leo/projects/Proyecto_2/main.cpp"
+},
+{
+  "directory": "/home/leo/projects/Proyecto_2/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++14 -o CMakeFiles/Proyecto_2.dir/CSV.cpp.o -c /home/leo/projects/Proyecto_2/CSV.cpp",
+  "file": "/home/leo/projects/Proyecto_2/CSV.cpp"
+},
+{
+  "directory": "/home/leo/projects/Proyecto_2/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++14 -o CMakeFiles/Proyecto_2.dir/pbPlots.cpp.o -c /home/leo/projects/Proyecto_2/pbPlots.cpp",
+  "file": "/home/leo/projects/Proyecto_2/pbPlots.cpp"
+},
+{
+  "directory": "/home/leo/projects/Proyecto_2/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++14 -o CMakeFiles/Proyecto_2.dir/supportLib.cpp.o -c /home/leo/projects/Proyecto_2/supportLib.cpp",
+  "file": "/home/leo/projects/Proyecto_2/supportLib.cpp"
+}
+]
