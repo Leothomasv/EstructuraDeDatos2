@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=about:client
+HostUrl=https://covid19.who.int/WHO-COVID-19-global-data.csv

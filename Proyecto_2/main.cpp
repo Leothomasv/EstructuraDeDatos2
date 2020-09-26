@@ -219,7 +219,7 @@ int main(int argc, char *argv[])
             char NombreGrafica[40];
             std::cout << "******************************************" << std::endl;
             std::cout << "QUIERE GRAFICAR? " << std::endl;
-            std::cout << "SI? No?: ";
+            std::cout << "si? no?: ";
             std::cin >> op;
             std::cout << "******************************************" << std::endl;
             if (strcmp(op, "si") == 0)

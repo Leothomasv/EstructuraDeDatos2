@@ -27,7 +27,7 @@ void OperacionesCSV::convert(){
     w.setSignature("ESTR");
     w.setName("Estructura de Datos II");
     w.size = 0xdeadbeef;
-    w.crc =CRC::Calculate(reinterpret_cast<char*>(&w), sizeof(WHO) - sizeof(uint32_t), CRC::CRC_32());
+    w.crc = CRC::Calculate(reinterpret_cast<char*>(&w), sizeof(WHO) - sizeof(uint32_t), CRC::CRC_32());
 
     for(int i = 0; i < doc.GetRowCount(); i++){
            
